@@ -61,6 +61,10 @@ sjt.xtab(ENE_2025$sexo, ENE_2025$a2, encoding = "UTF-8")
 
 ```
 
+En general se puede ver que en general tanto hombre como mujeres tienden a no realizar mucho negocio o Pololo como se le conoce popularmente, prinicipalmente donde se tienden a creer que son los hombres los que mas trabajan de negocios, son en general bastante igualados   
+
+
+
 ```{r Grafico1, message=TRUE, echo=FALSE}
 
 graph1 <- ENE_2025 %>% ggplot(aes(x = a2)) + 
@@ -72,3 +76,5 @@ graph1 <- ENE_2025 %>% ggplot(aes(x = a2)) +
 
 graph1
 ```
+
+El grafico deja claro que mayor parte de la gente no trabaja realizando los bien conocidos pololos

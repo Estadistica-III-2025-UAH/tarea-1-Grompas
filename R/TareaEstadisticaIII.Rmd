@@ -4,7 +4,7 @@ author: "Tomás Péndola Rojas"
 nombre_del_Curso: "Estadistica III"
 Nombre_del_Docente: "Mauricio Carrasco"
 Nombre_del_Ayudante: "Vicente Diaz"
-date: "2025-03-31"
+date: "2025-04-01"
 output: html_document
 ---
 

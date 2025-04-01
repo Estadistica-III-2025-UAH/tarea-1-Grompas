@@ -1,0 +1,74 @@
+---
+title: "Tarea N°1"
+author: "Tomás Péndola Rojas"
+nombre_del_Curso: "Estadistica III"
+Nombre_del_Docente: "Mauricio Carrasco"
+Nombre_del_Ayudante: "Vicente Diaz"
+date: "2025-03-31"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Carga de Paquetes
+
+```{r Paquetes, echo=FALSE, message=TRUE}
+
+pacman::p_load(tidyverse,
+               sjPlot,
+               sjmisc,
+               haven)
+
+```
+
+aqui se cargan los paques mas importantes del curso, especificamente, el paquete de Tidyverse funcion como como un paquete de liberias que se centra en la visualizacion, exploracion y manipulacion de datos, conteninedo dentro de si librerias como dplyr, ggplot2, tibble, entre otros, mientras que la Sjplot permite la visualizacion en formatos de tablas y grafios y Sjmisc permitira explorar las bases de datos en formatos de encuentas
+
+## Flujo
+
+
+![](../input/imagenes/flujo.png) 
+
+como se puede ver dentro de la imagen en Input van todos los datos originales, digase imagenes que pleanemos usar, junto a bases de datos
+
+R van todos los procedimientos que hagamos en dentro del proceso de investigacion, preferiblemente separamos los procesos para dejar cada uno de los procesos separados para mas orden.
+
+En Output van finalmente todos los datos procesados, digase graficos y tablas, que fueron obtenidos al procesar los datos
+
+## Descritivos
+
+```{r Base de Datos, message=TRUE, echo=FALSE}
+
+ene_2025_01_def <- read_dta("~/tarea-1-Grompas/Input/Data/ene-2025-01-def.dta")
+
+
+```
+
+abrimos la base datos, para este caso hara uso de la variable de sexo segun trabajo informal o pololo
+
+```{r seleccion, message=TRUE, echo=FALSE}
+
+ENE_2025 <- ene_2025_01_def %>% select(sexo, a2)
+
+```
+
+Selecionamos las variables a trabajar, la convertimos en una base separada para trabjar mejor con los datos
+
+```{r Tabla deScritivos, message=TRUE, echo=FALSE}
+
+sjt.xtab(ENE_2025$sexo, ENE_2025$a2, encoding = "UTF-8")
+
+```
+
+```{r Grafico1, message=TRUE, echo=FALSE}
+
+graph1 <- ENE_2025 %>% ggplot(aes(x = a2)) + 
+  geom_bar(fill = "#66CD00")+
+  labs(title = "Negocio o Pololo",
+       x = "Cantidad Realizada",
+       y = "Respuesta") +
+  theme_bw()
+
+graph1
+```
